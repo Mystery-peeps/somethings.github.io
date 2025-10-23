@@ -88,6 +88,27 @@
   background-color: #04AA6D;
   color: green;
 }
+    /*Game canvas*/
+    Canvas{
+      border:1px solid #d3d3d3;
+      background-color:#f1f1f1;
+    }
     </style>
 </head>
+    <body onload="startGame()">
+      <script>
+        var plr1;
+        var plr2;
+        var score;
+  funciton startGame() {
+    plr1 = new component(30, 30, "red", 10, 120);
+    plr1.gravity = 0.05;
+    plr2 = new component(30, 30, "red", 10, 120);
+    plr2.gravity = 0.05;
+    score = new component("30px", "Consolas", "black", 280, 40, "text");
+    /*myGameArea.start();*/ 
+  
+  }
+      </script>
+    </body>
   </html> 
