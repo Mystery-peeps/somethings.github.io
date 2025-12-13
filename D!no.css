@@ -1,1 +1,24 @@
-
+*{
+  padding: 0;
+  marrgin: 0;
+}
+#game{
+  width: 500px;
+  height: 200px;
+  border: 5px solid black;
+}
+#character{
+  width: 20px; 
+  hight: 50px;
+  background-color: red;
+  position: relative;
+  top: 150px;
+}
+#block{
+  width: 20px;
+  hieght: 20px;
+  background-color: blue;
+  position: relative;
+  top: 180px
+  left: 480px;
+}
