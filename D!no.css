@@ -14,6 +14,15 @@
   position: relative;
   top: 150px;
 }
+.animate{
+  animation: jump 500ms; 
+}
+@keyframes jump{
+  0%{top: 150px;}
+ 30%{top: 100px;}
+ 70%{top: 100px;}
+   100%{top: 150px;}
+}
 #block{
   width: 20px;
   hieght: 20px;
@@ -21,4 +30,9 @@
   position: relative;
   top: 180px
   left: 480px;
+  animation: block ls infinite linear;
+}
+@keyframes block{
+  0%{left:480px;}
+  100%{left:-40px;}
 }
