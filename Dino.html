@@ -1,37 +1,79 @@
 <!DOCTYPE html>
-<html>
-  <html lang = "en" onclick="jump()">
+<html lang="en">
 <head>
-  <title> D!no </title>  
-  <meta name="viewport", content="width=device-width, initial-scale=1.0", charset="UTF-8" >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D!no</title>
   <link rel="stylesheet" href="Dino.css">
+  <style>
+    /* Minimal CSS for testing */
+    #game {
+      width: 500px;
+      height: 200px;
+      position: relative;
+      background-color: lightblue;
+      overflow: hidden;
+    }
+    #character {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      position: absolute;
+      top: 130px;
+      left: 20px;
+    }
+    #block {
+      width: 50px;
+      height: 50px;
+      background-color: green;
+      position: absolute;
+      top: 130px;
+      right: 0;
+      animation: move 2s infinite linear;
+    }
+    @keyframes move {
+      0% { right: 0; }
+      100% { right: 500px; }
+    }
+    .animate {
+      animation: jump 0.5s;
+    }
+    @keyframes jump {
+      0% { top: 130px; }
+      50% { top: 80px; }
+      100% { top: 130px; }
+    }
+  </style>
 </head>
-  <body>
-    <div id="game">
-      <div id="character"></div>
-      <div id="block"></div>
-  </body>
+<body onclick="jump()">
+  <div id="game">
+    <div id="character"></div>
+    <div id="block"></div>
+  </div>
+
   <script>
     var character = document.getElementById("character");
     var block = document.getElementById("block");
-    function jump () {
-      if (character.classList != "animate") {
+
+    function jump() {
+      if (!character.classList.contains("animate")) {
         character.classList.add("animate");
+        setTimeout(function () {
+          character.classList.remove("animate");
+        }, 500);
       }
-      setTimeout(function () {
-        character.classList.remove("animate");
-      }, 500);
     }
-    
+
     var checkDead = setInterval(function () {
-     var characterTop = 
-       parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-       var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-       if (blockLeft<20 && blockLeft>0 && characterTop>=130) {
+      var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+      var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("right"));
+      
+      if (blockLeft < 70 && blockLeft > 20 && characterTop >= 130) {
         block.style.animation = "none";
         block.style.display = "none";
-        alert("U Lost (prob because of petroleums laggy code)");
+        alert("U Lose");
       }
     }, 10);
   </script>
-</html> 
+</body>
+</html>
