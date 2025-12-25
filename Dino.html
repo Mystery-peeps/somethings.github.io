@@ -47,6 +47,7 @@
   <div id="game">
     <div id="character"></div>
     <div id="block"></div>
+    <p id="score"></p>
   </div>
 
   <script>
@@ -75,6 +76,7 @@
         block.style.animation = "move 2s infinite linear";
       }
       score += 1;
+      document.getElementById("score").innerHTML = Math.round(score);
     }, 10);
   </script>
 </body>
