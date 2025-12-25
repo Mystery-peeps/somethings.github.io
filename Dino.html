@@ -76,7 +76,7 @@
         block.style.display = "block";
         block.style.animation = "move 2s infinite linear";
       }
-      if (blockLeft == 0) {
+      if (blockLeft < 10 && blockLeft > 0) {
         score += 1;
       }
       document.getElementById("score").innerHTML = Math.round(score);
