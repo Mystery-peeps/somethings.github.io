@@ -29,6 +29,9 @@
       left: 500px;
       animation: move 2s infinite linear;
     }
+    #score {
+      right: 0px;
+    }
     @keyframes move {
       0% { left: 500px; }
       100% { left: -20px; }
@@ -54,6 +57,7 @@
     var character = document.getElementById("character");
     var block = document.getElementById("block");
     var score = 0;
+    var canScore = true;
 
     function jump() {
       if (!character.classList.contains("animate")) {
@@ -77,7 +81,13 @@
         block.style.animation = "move 2s infinite linear";
       }
       if (blockLeft < 10 && blockLeft > 0) {
-        score += 1;
+        if (canScore == true) {
+          score += 3;
+          canScore = false;
+        }
+      }
+      if (blockLeft < 100) {
+        canScore = true;
       }
       document.getElementById("score").innerHTML = Math.round(score);
     }, 10);
