@@ -6,10 +6,10 @@
   <title>D!no</title>
   <style>
     #game {
-      width: 500px;
-      height: 200px;
+      width: 1000px;
+      height: 400px;
       position: relative;
-      background-color: lightblue;
+      background-color: black;
       overflow: hidden;
     }
     #character {
@@ -30,7 +30,7 @@
       animation: move 2s infinite linear;
     }
     #score {
-      right: 0px;
+      left: 0px;
     }
     @keyframes move {
       0% { left: 500px; }
@@ -86,7 +86,7 @@
           canScore = false;
         }
       }
-      if (blockLeft < 100) {
+      if (blockLeft < 50) {
         canScore = true;
       }
       document.getElementById("score").innerHTML = Math.round(score);
