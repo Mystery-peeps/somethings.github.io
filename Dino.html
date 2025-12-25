@@ -4,12 +4,34 @@
 <head>
   <title> D!no </title>  
   <meta name="viewport", content="width=device-width, initial-scale=1.0", charset="UTF-8" >
-  <link rel="stylesheet" href="D!no.css">
+  <link rel="stylesheet" href="Dino.css">
 </head>
-    <body>
-      <div id="game">
-        <div id="character"></div>
-        <div id="block"></div>
-    </body>
-    <script src="script.js"></script>
-  </html> 
+  <body>
+    <div id="game">
+      <div id="character"></div>
+      <div id="block"></div>
+  </body>
+  <script>
+    var character = ducument.getElementById("character");
+    var block = ducument.getElementById("block");
+    function jump () {
+      if (character.classList != "animate") {
+        character.classList.add("animate");
+      }
+      setTimeout(function () {
+        character.classList.remove("animate");
+      }, 500);
+    }
+    
+    var checkDead = setInterval(function () {
+     var characterTop = 
+       parsInt(window.getCumputedStyle(character).getPropertyValue("top"));
+       var blockLeft = parsInt(window.getCumputedStyle(block).getPropertyValue("left"));
+       if (blockLeft<20 && blockLeft>0 && characterTop>=130) {
+        block.style.animation = "none";
+        block.style.display = "none";
+        alert("U Lost (prob because of petroleums laggy code)");
+      }
+    }, 10);
+  </script>
+</html> 
