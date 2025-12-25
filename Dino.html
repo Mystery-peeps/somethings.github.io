@@ -70,12 +70,15 @@
       if (blockLeft < 40 && blockLeft > 0 && characterTop >= 130) {
         block.style.animation = "none";
         alert("U Lose");
+        score = 0;
         // reset block position for replay
         block.style.left = "500px";
         block.style.display = "block";
         block.style.animation = "move 2s infinite linear";
       }
-      score += 1;
+      if (blockLeft == 0) {
+        score += 1;
+      }
       document.getElementById("score").innerHTML = Math.round(score);
     }, 10);
   </script>
