@@ -52,6 +52,7 @@
   <script>
     var character = document.getElementById("character");
     var block = document.getElementById("block");
+    var score = 0;
 
     function jump() {
       if (!character.classList.contains("animate")) {
@@ -73,6 +74,7 @@
         block.style.display = "block";
         block.style.animation = "move 2s infinite linear";
       }
+      score += 1;
     }, 10);
   </script>
 </body>
