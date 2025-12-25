@@ -17,7 +17,7 @@
       height: 50px;
       background-color: green;
       position: absolute;
-      top: 130px;
+      top: 260px;
       left: 20px;
     }
     #block {
@@ -25,8 +25,8 @@
       height: 30px;
       background-color: red;
       position: absolute;
-      top: 150px;
-      left: 500px;
+      top: 300px;
+      left: 1000px;
       animation: move 2s infinite linear;
     }
     #score {
@@ -40,9 +40,9 @@
       animation: jump 0.5s;
     }
     @keyframes jump {
-      0% { top: 130px; }
-      50% { top: 50px; }
-      100% { top: 130px; }
+      0% { top: 260px; }
+      50% { top: 100px; }
+      100% { top: 260px; }
     }
   </style>
 </head>
@@ -71,12 +71,12 @@
       var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
       // collision detection
-      if (blockLeft < 40 && blockLeft > 0 && characterTop >= 130) {
+      if (blockLeft < 40 && blockLeft > 0 && characterTop >= 260) {
         block.style.animation = "none";
         alert("U Lose");
         score = 0;
         // reset block position for replay
-        block.style.left = "500px";
+        block.style.left = "1000px";
         block.style.display = "block";
         block.style.animation = "move 2s infinite linear";
       }
